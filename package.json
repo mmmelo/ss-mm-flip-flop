@@ -1,16 +1,20 @@
 {
-    "name": "@fuse/starter",
-    "version": "13.2.0",
-    "description": "Fuse - Angular Admin Template and Starter Project",
-    "author": "https://themeforest.net/user/srcn",
-    "license": "https://themeforest.net/licenses/standard",
+    "name": "ss-mm-web",
+    "version": "0.0.1",
+    "description": "Trade",
+    "author": "mmmelo",
+    "license": "mmmelo.com",
     "private": true,
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
         "build": "ng build",
+        "watch": "ng build --watch --configuration development",
         "test": "ng test",
-        "lint": "ng lint"
+        "dev:ssr": "ng run ss-mm-web:serve-ssr",
+        "serve:ssr": "node dist/ss-mm-web/server/main.js",
+        "build:ssr": "ng build && ng run ss-mm-web:server",
+        "prerender": "ng run ss-mm-web:prerender"
     },
     "dependencies": {
         "@angular/animations": "12.1.1",
@@ -33,6 +37,8 @@
         "@fullcalendar/rrule": "4.4.2",
         "@fullcalendar/timegrid": "4.4.2",
         "@ngneat/transloco": "2.21.0",
+        "@nguniversal/builders": "^12.1.0",
+        "@nguniversal/express-engine": "^12.1.0-next.0",
         "apexcharts": "3.27.1",
         "crypto-js": "3.3.0",
         "highlight.js": "11.0.1",

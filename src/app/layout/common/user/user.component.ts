@@ -48,8 +48,8 @@ export class UserComponent implements OnInit, OnDestroy
         this._userService.user$
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((user: User) => {
+                console.info('data', user);
                 this.user = user;
-
                 // Mark for check
                 this._changeDetectorRef.markForCheck();
             });
@@ -77,16 +77,16 @@ export class UserComponent implements OnInit, OnDestroy
     updateUserStatus(status: string): void
     {
         // Return if user is not available
-        if ( !this.user )
-        {
-            return;
-        }
-
-        // Update the user
-        this._userService.update({
-            ...this.user,
-            status
-        }).subscribe();
+        // if ( !this.user )
+        // {
+        //     return;
+        // }
+        //
+        // // Update the user
+        // this._userService.update({
+        //     ...this.user,
+        //     .data.status
+        // }).subscribe();
     }
 
     /**

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, ReplaySubject } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { User } from 'app/core/user/user.types';
+import {environment} from '../../../environments/environment';
 
 @Injectable({
     providedIn: 'root'
@@ -47,9 +48,9 @@ export class UserService
      */
     get(): Observable<User>
     {
-        return this._httpClient.get<User>('api/common/user').pipe(
+        return this._httpClient.get<User>( `${environment.apiUrl}/userInfo`).pipe(
             tap((user) => {
-                this._user.next(user);
+                this._user.next(user.data);
             })
         );
     }

@@ -161,15 +161,12 @@ export class AuthUtils
 
         // Split the token
         const parts = token.split('.');
-
         if ( parts.length !== 3 )
         {
             throw new Error('The inspected token doesn\'t appear to be a JWT. Check to make sure it has three parts and see https://jwt.io for more.');
         }
-
         // Decode the token using the Base64 decoder
         const decoded = this._urlBase64Decode(parts[1]);
-
         if ( !decoded )
         {
             throw new Error('Cannot decode the token.');
