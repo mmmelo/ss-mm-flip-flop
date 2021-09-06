@@ -30,6 +30,7 @@ export class AuthService
      */
     set accessToken(token: string)
     {
+        console.log('token', token);
         localStorage.setItem('accessToken', token);
     }
 
