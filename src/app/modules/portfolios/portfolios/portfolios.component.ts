@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {PortfoliosService} from './portfolios.service';
+import {MatTableDataSource} from '@angular/material/table';
+import {Subject} from 'rxjs';
+import {takeUntil} from 'rxjs/operators';
 
 @Component({
     selector: 'app-portfolios',
@@ -7,11 +11,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PortfoliosComponent implements OnInit {
 
-    recentTransactionsDataSource: any;
-    recentTransactionsTableColumns: string[] = ['transactionId', 'date', 'name', 'amount', 'status'];
-    constructor() { }
+    recentTransactionsDataSource:  MatTableDataSource<any> = new MatTableDataSource();
+    recentTransactionsTableColumns: string[] = ['id', 'description'];
+    private _unsubscribeAll: Subject<any> = new Subject<any>();
+
+    constructor( private _portfolioService: PortfoliosService) { }
 
     ngOnInit(): void {
+
+        this._portfolioService.listPortfolios()
+            .pipe(takeUntil( this._unsubscribeAll))
+            .subscribe( (data) => {
+                this.recentTransactionsDataSource.data = data.data;
+            })
+        ;
+
     }
 
     /**
@@ -24,4 +38,6 @@ export class PortfoliosComponent implements OnInit {
     {
         return item.id || index;
     }
+
+
 }
