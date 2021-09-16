@@ -1,0 +1,43 @@
+<div class="flex flex-col flex-auto min-w-0">
+
+    <div class="flex-auto p-6 sm:p-10">
+        <form class="flex flex-col mt-4 px-8 pt-10 bg-card shadow rounded overflow-hidden" [formGroup]="createPortfolioForm">
+            <div class="flex flex-col gt-xs:flex-row gt-xs:items-start">
+                <div class="gt-xs:max-w-80 gt-xs:pr-12">
+                    <p class="text-lg font-medium">Add New Portfolio</p>
+                </div>
+
+                <div class="flex-auto min-w-64">
+                    <div class="flex">
+                        <mat-form-field class="flex-auto">
+                            <mat-label>Portfolio Name</mat-label>
+                            <input
+                                id="description"
+                                matInput
+                                [formControlName]="'description'"
+                                [placeholder]="'Portfolio a Name for your Portfolio'">
+                            <mat-error *ngIf="createPortfolioForm.get('description').hasError('required')">
+                                A name is required
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="flex items-center justify-end border-t -mx-8 mt-8 px-8 py-5 bg-gray-50 dark:bg-gray-700">
+                <button mat-button>
+                    Cancel
+                </button>
+                <button
+                    class="px-6 ml-3"
+                    mat-flat-button
+                    (click)="create()"
+                    [color]="'primary'">
+                    Save
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>

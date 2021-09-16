@@ -80,6 +80,9 @@ export const appRoutes: Route[] = [
 
             {path: 'portfolios', children: [
                     {path: 'portfolios', loadChildren: () => import('app/modules/portfolios/portfolios/portfolios.module').then(m => m.PortfoliosModule)},
+                    {path: 'portfolios/:id', loadChildren: () => import('app/modules/portfolios/portfolios/portfolios.module').then(m => m.PortfoliosModule)},
+                    {path: 'new', loadChildren: () => import('app/modules/portfolios/new/new.module').then(m => m.NewModule)},
+
                     {path: 'import', loadChildren: () => import('app/modules/portfolios/import/import.module').then(m => m.ImportModule)},
                 ]
             }

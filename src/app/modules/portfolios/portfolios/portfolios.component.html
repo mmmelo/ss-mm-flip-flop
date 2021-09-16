@@ -12,11 +12,13 @@
                 <button
                     class="hidden sm:inline-flex ml-3"
                     mat-flat-button
+                    [routerLink]="['/portfolios/new']"
                     [color]="'primary'">
+
                     <mat-icon
                         class="icon-size-5"
-                        [svgIcon]="'heroicons_solid:save'"></mat-icon>
-                    <span class="ml-2">Export</span>
+                        [svgIcon]="'heroicons_outline:plus'"></mat-icon>
+                    <span class="ml-2">Add</span>
                 </button>
                 <button
                     [routerLink]="['/portfolios/import']"
@@ -115,7 +117,7 @@
                         <tr
                             class="order-row h-16 cursor-pointer"
                             mat-row
-                            [routerLink]="['/portfolios/import/']"
+                            [routerLink]="['/portfolios/portfolios', row.id]"
                             *matRowDef="let row; columns: recentTransactionsTableColumns"></tr>
                         <tr
                             class="h-16 border-0"

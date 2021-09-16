@@ -20,26 +20,30 @@ import {SharedModule} from '../../../shared/shared.module';
 
 
 @NgModule({
-  declarations: [
-      PortfoliosComponent,
-  ],
-  imports: [
-    CommonModule,
-    PortfoliosRoutingModule,
-      MatButtonModule,
-      MatButtonToggleModule,
-      MatDividerModule,
-      MatIconModule,
-      MatMenuModule,
-      MatProgressBarModule,
-      MatRippleModule,
-      MatSidenavModule,
-      MatSortModule,
-      MatTableModule,
-      MatTabsModule,
-      NgApexchartsModule,
-      TranslocoModule,
-      SharedModule
-  ]
+    declarations: [
+        PortfoliosComponent,
+    ],
+    imports: [
+        CommonModule,
+        PortfoliosRoutingModule,
+        MatButtonModule,
+        MatButtonToggleModule,
+        MatDividerModule,
+        MatIconModule,
+        MatMenuModule,
+        MatProgressBarModule,
+        MatRippleModule,
+        MatSidenavModule,
+        MatSortModule,
+        MatTableModule,
+        MatTabsModule,
+        NgApexchartsModule,
+        TranslocoModule,
+        SharedModule
+    ],
+    exports: [
+        PortfoliosComponent
+    ],
+
 })
 export class PortfoliosModule { }

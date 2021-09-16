@@ -5,7 +5,7 @@ import {environment} from '../../../../environments/environment';
 import {switchMap} from 'rxjs/operators';
 
 @Injectable({
-    providedIn: 'root',
+    providedIn: 'root'
 })
 export class PortfoliosService {
 
@@ -23,5 +23,10 @@ export class PortfoliosService {
                 return of(response);
             })
         );
+    }
+
+    create(protfolio: { description: string}): Observable<any>
+    {
+        return this._httpClient.post( `${environment.apiUrl}/portfolio`, protfolio);
     }
 }
